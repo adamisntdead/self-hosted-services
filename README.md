@@ -2,6 +2,6 @@
 
 My collection of docker-compose files used to setup my self-hosted services.
 
-```shell
-docker compose up -d
-```
+## Usage
+
+Everything here assumes that the root directory is `~/self-hosted`. For each service, you can start it with `docker compose up -d`,
