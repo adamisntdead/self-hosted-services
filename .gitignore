@@ -1,3 +1,12 @@
+# General Configuration
 certs
+
+# Paperless
 paperless-ng/consume
 paperless-ng/export
+
+# Homer
+homer/assets/additionnal-page.yml.dist
+homer/assets/config.yml.dist
+homer/assets/config.yml.dist.sample-sui
+homer/assets/custom.css.sample
