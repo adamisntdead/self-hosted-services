@@ -23,8 +23,9 @@ services:
         tag: "app"
         url: "https://firefly.ak2316.sh"
         target: "_blank" # optional html a tag target attribute
-      - name: "Another one"
-        logo: "assets/tools/sample2.png"
-        subtitle: "Another application"
+      - name: "Paperless"
+        logo: "assets/tools/paperless-ng.png"
+        subtitle: "Document Management"
         tag: "app"
-        url: "#"
+        url: "https://paperless.ak2316.sh"
+        target: "_blank" # optional html a tag target attribute
