@@ -1,8 +1,12 @@
 # Setup
 
-This setup requires a few things to keep everything working. These are described here.
+Everything runs through Docker, and is configured with docker-compose files.
+To setup everything, you will need to do a few things before you start all of the dockers.
 
-## The Reverse Proxy
+## Certificates
+
+For the reverse proxy to work properly with the domain `ak2316.sh`, you need to generate some certificates.
+These instructions are written for MacOS, but shouldn't be too hard to adapt to other settings.
 
 ```shell
 # Create a local CA
@@ -10,11 +14,10 @@ brew install mkcert
 mkcert -install
 
 # Generate a trusted local certificate
-mkdir certs
-cd ./certs
+cd ./caddy/certs
 mkcert "*.ak2316.sh"
 mkcert "ak2316.sh"
-cd ..
+cd ../..
 ```
 
 You will need to edit the `/etc/host` file, adding
@@ -23,31 +26,30 @@ You will need to edit the `/etc/host` file, adding
 127.0.0.1 ak2316.sh firefly.ak2316.sh paperless.ak2316.sh
 ```
 
-more entries will be required depending on how many services you are going to use.
+this will need to be modified if more services are added.
 
-## Caddy
+## Application Setup
 
-```shell
-# Install Caddy
-brew install caddy
+### Paperless
 
-# Start Caddy
-# brew services start caddy
-caddy run --config Caddyfile
-```
-
-## Docker Compose Files
-
-```shell
-cd homer && docker compose up -d && cd ..
-cd firefly && docker compose up -d && cd ..
-cd paperless-ng && docker compose up -d && cd ..
-```
-
-## Paperless
+You will need to create a superuser.
 
 ```shell
 # Create a superuser
 cd paperless-ng
 docker compose run --rm webserver createsuperuser
+```
+
+## Running
+
+You can boot up all of the services with
+
+```shell
+./scripts/up.sh
+```
+
+and you can tear it down with
+
+```shell
+./scripts/down.sh
 ```

@@ -1,5 +1,5 @@
 # General Configuration
-certs
+*.pem
 
 # Paperless
 paperless-ng/consume

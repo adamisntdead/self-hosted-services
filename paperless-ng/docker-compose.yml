@@ -1,4 +1,5 @@
 version: "3.4"
+
 services:
   broker:
     image: redis:6.0
@@ -7,6 +8,7 @@ services:
   webserver:
     image: jonaswinkler/paperless-ng:latest
     restart: unless-stopped
+    container_name: paperless
     depends_on:
       - broker
     ports:
@@ -28,3 +30,8 @@ services:
 volumes:
   data:
   media:
+
+networks:
+  default:
+    external: true
+    name: selfhosted

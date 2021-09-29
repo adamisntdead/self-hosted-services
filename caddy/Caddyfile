@@ -1,0 +1,22 @@
+# Backend Address Configuration
+
+# Homer Server
+ak2316.sh {
+    tls /root/certs/ak2316.sh.pem /root/certs/ak2316.sh-key.pem 
+
+    reverse_proxy homer:8080
+}
+
+# Firefly
+firefly.ak2316.sh {
+    tls /root/certs/_wildcard.ak2316.sh.pem /root/certs/_wildcard.ak2316.sh-key.pem 
+
+    reverse_proxy firefly:8080
+}
+
+# Paperless-ng
+paperless.ak2316.sh {
+    tls /root/certs/_wildcard.ak2316.sh.pem /root/certs/_wildcard.ak2316.sh-key.pem 
+
+    reverse_proxy paperless:8000
+}
