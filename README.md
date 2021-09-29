@@ -10,4 +10,6 @@ Everything here assumes that the root directory is `~/self-hosted`. For each ser
 
 This is an internal map to different services.
 
+- Homer: `localhost:9000`
 - Firefly: `localhost:9001`
+- Paperless: `localhost:9002`

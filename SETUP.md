@@ -18,7 +18,7 @@ mkcert "ak2316.sh"
 You will need to edit the `/etc/host` file, adding
 
 ```shell
-127.0.0.1 ak2316.sh firefly.ak2316.sh
+127.0.0.1 ak2316.sh firefly.ak2316.sh paperless.ak2316.sh
 ```
 
 more entries will be required depending on how many services you are going to use.
@@ -26,7 +26,17 @@ more entries will be required depending on how many services you are going to us
 ## Caddy
 
 ```shell
-# Install caddy
+# Install Caddy
 brew install caddy
-brew services start caddy
+
+# Start Caddy
+# brew services start caddy
+caddy run --config Caddyfile
+```
+
+## Paperless
+
+```shell
+# Create a superuser
+docker compose run --rm webserver createsuperuser
 ```

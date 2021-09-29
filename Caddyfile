@@ -13,3 +13,10 @@ firefly.ak2316.sh {
 
     reverse_proxy localhost:9001
 }
+
+# Paperless-ng
+paperless.ak2316.sh {
+    tls ./certs/_wildcard.ak2316.sh.pem ./certs/_wildcard.ak2316.sh-key.pem
+
+    reverse_proxy /* localhost:9002
+}
