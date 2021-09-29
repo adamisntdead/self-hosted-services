@@ -11,8 +11,6 @@ services:
     container_name: paperless
     depends_on:
       - broker
-    ports:
-      - 9002:8000
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9002"]
       interval: 30s
