@@ -2,14 +2,58 @@
 
 My collection of docker-compose files used to setup my self-hosted services.
 
-## Usage
+## Setup
 
-Everything here assumes that the root directory is `~/self-hosted`. For each service, you can start it with `docker compose up -d`,
+Everything runs through Docker, and is configured with docker-compose files.
+To setup everything, you will need to do a few things before you start all of the dockers.
 
-## Services
+### Domain and Certificates
 
-This is an internal map to different services.
+For the reverse proxy to work properly with the domain `ak2316.sh`, you need to generate some certificates.
+These instructions are written for MacOS, but shouldn't be too hard to adapt to other settings.
 
-- Homer: `localhost:9000`
-- Firefly: `localhost:9001`
-- Paperless: `localhost:9002`
+```shell
+# Create a local CA
+brew install mkcert
+mkcert -install
+
+# Generate a trusted local certificate
+cd ./caddy/certs
+mkcert "*.ak2316.sh"
+mkcert "ak2316.sh"
+cd ../..
+```
+
+You will need to edit the `/etc/host` file, adding
+
+```shell
+127.0.0.1 ak2316.sh firefly.ak2316.sh paperless.ak2316.sh
+```
+
+this will need to be modified if more services are added.
+
+### Running
+
+You can boot up all of the services with
+
+```shell
+./scripts/up.sh
+```
+
+and you can tear it down with
+
+```shell
+./scripts/down.sh
+```
+
+### Application Setup
+
+**Paperless-ng**
+
+You will need to create a superuser.
+
+```shell
+# Create a superuser
+cd paperless-ng
+docker compose run --rm webserver createsuperuser
+```
