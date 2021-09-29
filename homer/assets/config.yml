@@ -1,0 +1,30 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/icons for icons options
+
+title: "Self Hosted Dashboard"
+subtitle: "ak2316.sh"
+logo: "logo.png"
+# icon: "fas fa-skull-crossbones" # Optional icon
+
+header: true
+footer: false
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Applications"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Firefly III"
+        logo: "assets/tools/firefly-iii.png"
+        subtitle: "Personal Finance"
+        tag: "app"
+        url: "https://firefly.ak2316.sh"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Another one"
+        logo: "assets/tools/sample2.png"
+        subtitle: "Another application"
+        tag: "app"
+        url: "#"
