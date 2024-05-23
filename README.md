@@ -32,6 +32,12 @@ You will need to edit the `/etc/host` file, adding
 
 this will need to be modified if more services are added.
 
+Lastly you'll need to create the docker network:
+
+```shell
+docker network create selfhosted
+```
+
 ### Running
 
 You can boot up all of the services with

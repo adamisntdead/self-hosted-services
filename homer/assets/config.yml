@@ -29,3 +29,10 @@ services:
         tag: "app"
         url: "https://paperless.ak2316.sh"
         target: "_blank" # optional html a tag target attribute
+      - name: "ak2316.user.srcf.net"
+        logo: "assets/tools/ak2316-profile.png"
+        subtitle: "Personal Website"
+        tag: "site"
+        url: "https://ak2316.user.srcf.net"
+        target: "_blank" # optional html a tag target attribute
+

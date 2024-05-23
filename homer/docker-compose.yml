@@ -5,8 +5,10 @@ services:
     image: b4bz/homer
     container_name: homer
     volumes:
-      - ~/self-hosted/homer/assets:/www/assets
+      - /Users/adam/Development/self-hosted-services/homer/assets:/www/assets
     restart: unless-stopped
+    environment:
+      INIT_ASSETS: 0
 
 networks:
   default:
